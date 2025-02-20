@@ -21,8 +21,8 @@ useTexture.preload(TEXTURE_PATH);
 
 export default function App() {
   return (
-    <div className="absolute top-0  w-full h-full">
-      <div className="relative responsive-wrapper  ">
+    <div className=" top-0  w-full min-h-screen">
+      <div className=" responsive-wrapper  ">
         <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
           <ambientLight intensity={Math.PI} />
           <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>

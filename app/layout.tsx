@@ -1,9 +1,10 @@
 import NavBar from '@/components/navbar/NavBar';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Bebas_Neue } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
+const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: '3D ID CARD || Iqbal.Hikm',

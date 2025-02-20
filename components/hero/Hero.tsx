@@ -1,39 +1,86 @@
 'use client';
 
-import React from 'react';
-import App from '../band/App';
-import { motion } from 'framer-motion';
 import { useShadow } from '@/hooks/useShadow';
-import { after } from 'node:test';
-import AnimateTitle from './AnimateTitle';
-import AboutGlobeAnimate from './AboutGlobeAnimate';
+import { motion } from 'framer-motion';
+import { Bebas_Neue } from 'next/font/google';
+import Image from 'next/image';
+import App from '../band/App';
+import { useEffect, useRef, useState } from 'react';
 
-const Hero = (onMouseMove: any, onMouseLeave: any) => {
+const Hero = () => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
-  onMouseMove(handleMouseMove);
-  onMouseLeave(handleMouseLeave);
-  
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), 1000);
+        }
+      },
+      { threshold: 0.3 } // Aktif saat 30% dari elemen terlihat
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className='z-20' >
-      <div className="flex  items-center justify-center h-screen">
-        <motion.div className=" w-11/12 h-5/6 rounded-2xl bg-[#242424] text-xl flex items-center justify-center shadow-sm drop-shadow-xl" style={{ boxShadow: shadow }} initial={{ x: -100 }} animate={{ x: 0 }} exit={{ x: 100 }} transition={{ ease: 'easeOut', duration: 2 }}>
-          <motion.h1 className="font-bold text-5xl" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-            <div className="mx-auto flex w-[90%] flex-col items-start justify-center lg:max-w-[1212.8px]">
-        <div className="mb-10 flex w-full items-center justify-between gap-x-2 md:mb-16">
-          <AnimateTitle
-            title={"About me"}
-            className="text-left text-[40px] font-bold leading-[0.9em] tracking-tighter sm:text-[45px] md:text-[60px] lg:text-[80px]"
-            wordSpace="mr-[14px]"
-            charSpace="mr-[0.0001em]"
-          />
-          <AboutGlobeAnimate />
+    <section ref={sectionRef} id="hero" className="relative w-full min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 text-white">
+      <div className="absolute inset-0 flex items-center justify-center">
+        {isVisible && (
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-40">
+            <App />
+          </div>
+        )}
+        <div className="absolute inset-0 flex items-center justify-center z-30">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ repeatDelay: 3, duration: 0.8 }} className="w-[20%] h-[40%] rounded-3xl text-center flex items-center justify-center">
+            <div className="relative bg-black/70 transition-all duration-200 w-full h-full rounded-3xl flex items-center justify-center">
+              <div className=" bg-black/40 transition-all duration-200 w-[95%] h-[95%] rounded-3xl"></div>
+              <div className="absolute bg-black/20 transition-all duration-200 w-[90%] h-[90%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[85%] h-[85%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[80%] h-[80%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[75%] h-[75%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[70%] h-[70%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[65%] h-[65%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[60%] h-[60%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[55%] h-[55%] rounded-3xl"></div>
+              <div className="absolute bg-black/10 transition-all duration-200 w-[50%] h-[50%] rounded-3xl"></div>
+              <motion.div className='absolute bg-[url("/assets/iqbal.png")] opacity-60 bg-cover bg-center rounded-3xl transition-all duration-200 backdrop-grayscale w-full h-full'>
+                <motion.div className="transition-all duration-200 backdrop-grayscale w-full h-full"></motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-        </div>
+
+        {/* Layer kedua (di atasnya) */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ repeatDelay: 2, duration: 0.5 }} className="w-[90%] h-[90%]  rounded-3xl text-center flex flex-col items-center justify-center">
+          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
+            M IQBAL FATKHUL HIKAM
+          </motion.h1>
+          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: -100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
+            M IQBAL FATKHUL HIKAM
+          </motion.h1>
+          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
+            M IQBAL FATKHUL HIKAM
+          </motion.h1>
+          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: -100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
+            M IQBAL FATKHUL HIKAM
+          </motion.h1>
+          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
+            M IQBAL FATKHUL HIKAM
           </motion.h1>
         </motion.div>
-        
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { useShadow } from '@/hooks/useShadow';
-import { HomeFilled } from '@ant-design/icons';
+import { HomeFilled, InfoCircleFilled } from '@ant-design/icons';
 
 const NavBar = () => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
@@ -31,27 +31,27 @@ const NavBar = () => {
           <div className="flex flex-1 items-center justify-center">
             <nav
               aria-label="Global"
-              className={` z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border hover:border-purple-600/70 ${
-                isNear ? 'bottom-4' : '-bottom-7'
+              className={` z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border hover:border-green-600/70 ${
+                isNear ? 'bottom-20' : '-bottom-7'
               }`}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ boxShadow: shadow }}>
-              <ul className="flex items-center gap-6 text-sm">
+              <ul className="flex items-center gap-6 text-xl">
                 <li>
-                  <div className={`block text-white transition hover:text-purple-600/75`}>
+                  <a href="#hero" className={`block text-white transition hover:text-green-600/75`}>
                     <HomeFilled />
-                  </div>
+                  </a>
                 </li>
                 <li>
-                  <div className=" text-white transition hover:text-purple-600/75">
-                    
-                  </div>
+                  <a href="#about" className=" text-white transition hover:text-green-600/75">
+                    <InfoCircleFilled />
+                  </a>
                 </li>
 
                 <li>
-                  <div className={`block text-white transition hover:text-purple-600/75`}>
-                  
+                  <div className={`block text-white transition hover:text-green-600/75`}>
+                    <HomeFilled />
                   </div>
                 </li>
               </ul>
