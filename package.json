@@ -26,7 +26,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "three": "^0.157.0"
+    "three": "^0.164.0"
   },
   "devDependencies": {
     "@types/node": "latest",

@@ -52,23 +52,29 @@ const SplitText: React.FC<SplitTextProps> = ({
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 
-  const springs = useSprings(
+  const [springs, api] = useSprings(
     letters.length,
-    letters.map((_, i) => ({
+    (i) => ({
       from: animationFrom,
-      to: inView
-        ? async (next: (props: any) => Promise<void>) => {
-            await next(animationTo);
-            animatedCount.current += 1;
-            if (animatedCount.current === letters.length && onLetterAnimationComplete) {
-              onLetterAnimationComplete();
-            }
-          }
-        : animationFrom,
-      delay: i * delay,
       config: { easing },
-    }))
+    }),
+    []
   );
+
+  useEffect(() => {
+    if (inView) {
+      api.start((i) => ({
+        to: async (next) => {
+          await next(animationTo);
+          animatedCount.current += 1;
+          if (animatedCount.current === letters.length && onLetterAnimationComplete) {
+            onLetterAnimationComplete();
+          }
+        },
+        delay: i * delay,
+      }));
+    }
+  }, [inView, api, animationTo, delay, letters.length, onLetterAnimationComplete]);
 
   return (
     <p ref={ref} className={`split-parent overflow-hidden inline ${className}`} style={{ textAlign, whiteSpace: 'normal', wordWrap: 'break-word' }}>
