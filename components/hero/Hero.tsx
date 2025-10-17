@@ -1,85 +1,41 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
-import { useShadow } from '@/hooks/useShadow';
 import { motion } from 'framer-motion';
-import { Bebas_Neue } from 'next/font/google';
-import Image from 'next/image';
 import App from '../band/App';
-import { useEffect, useRef, useState } from 'react';
+import { UseTimeOut } from '@/hooks/useTimeOut';
+import ProfileHoverEffect from '../ui/ProfileHoverEffect';
+import AnimatedText from '../ui/AnimatedText';
+import { useShowSection } from '@/hooks/useShowSection';
+import About from '../about/About';
 
 const Hero = () => {
-  const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), 1000);
-        }
-      },
-      { threshold: 0.3 } // Aktif saat 30% dari elemen terlihat
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const showApp = UseTimeOut(2000);
+  const { isVisible, sectionRef } = useShowSection(1000);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative w-full min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 text-white">
-      <div className="absolute inset-0 flex items-center justify-center">
-        {isVisible && (
-          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-40">
-            <App />
-          </div>
-        )}
-        <div className="absolute inset-0 flex items-center justify-center z-30">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ repeatDelay: 3, duration: 0.8 }} className="w-[20%] h-[40%] rounded-3xl text-center flex items-center justify-center">
-            <div className="relative bg-black/70 transition-all duration-200 w-full h-full rounded-3xl flex items-center justify-center">
-              <div className=" bg-black/40 transition-all duration-200 w-[95%] h-[95%] rounded-3xl"></div>
-              <div className="absolute bg-black/20 transition-all duration-200 w-[90%] h-[90%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[85%] h-[85%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[80%] h-[80%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[75%] h-[75%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[70%] h-[70%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[65%] h-[65%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[60%] h-[60%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[55%] h-[55%] rounded-3xl"></div>
-              <div className="absolute bg-black/10 transition-all duration-200 w-[50%] h-[50%] rounded-3xl"></div>
-              <motion.div className='absolute bg-[url("/assets/iqbal.png")] opacity-60 bg-cover bg-center rounded-3xl transition-all duration-200 backdrop-grayscale w-full h-full'>
-                <motion.div className="transition-all duration-200 backdrop-grayscale w-full h-full"></motion.div>
-              </motion.div>
+    <section ref={sectionRef} id="hero" className="relative w-full min-h-screen flex items-center justify-center bg-white dark:bg-[#101922] text-white">
+      {isVisible && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* profile */}
+          <div
+            className="min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] w-full mx-10 flex flex-col items-center justify-center bg-white/1 backdrop-blur-sm rounded-xl bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1viPbXycVubSbo1WHLCkLG1ZHVYUMkhuOEzgJsRowm2N01dq4O8-Xr8dciJltB26wJkCbtwDbtnxqaW3D2BHWr9slmxfE9chRpYJzqnQAElWe5uf2fuaYNaOniAZR4OTFJBMv7uPS2E_O2EDtjhKscw60rCCWtg3fgHdanlYYOxH9mZFMug2TpORzvS6rLBWHBdDUF090-ctkFBYMNRZgk__sKtBQCjXqaKwmYe21a_S-SRyEb3p-540UwKUyoTwnhuZ_KZh9ig")`,
+            }}>
+            <div className="flex flex-col gap-6 p-6 md:p-12 text-center">
+              <h1 className="text-white  text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-tight">Hi, I'm Iqbal, a Mahasiswa</h1>
+              <h2 className="text-gray-200 text-lg sm:text-xl max-w-3xl mx-auto">I create intuitive and engaging digital experiences. Explore my portfolio to see my work and design philosophy.</h2>
+              <button className="z-50 self-center flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-blue-600 text-white text-base font-bold tracking-wide hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
+                  <span className="truncate">View Projects</span>
+                </button>
             </div>
-          </motion.div>
+          </div>
+          {/* id card */}
+          <div className="absolute top-0 left-0 w-full h-full hidden md:flex sm:flex pointer-events-none z-40">{showApp && <App />}</div>
+          {/* typografi */}
         </div>
-
-        {/* Layer kedua (di atasnya) */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ repeatDelay: 2, duration: 0.5 }} className="w-[90%] h-[90%]  rounded-3xl text-center flex flex-col items-center justify-center">
-          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
-            M IQBAL FATKHUL HIKAM
-          </motion.h1>
-          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: -100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
-            M IQBAL FATKHUL HIKAM
-          </motion.h1>
-          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
-            M IQBAL FATKHUL HIKAM
-          </motion.h1>
-          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: -100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
-            M IQBAL FATKHUL HIKAM
-          </motion.h1>
-          <motion.h1 className={`font-extrabold text-gray-300 text-7xl`} initial={{ x: 100 }} animate={{ x: 0 }} transition={{ repeatDelay: 3, duration: 0.8 }}>
-            M IQBAL FATKHUL HIKAM
-          </motion.h1>
-        </motion.div>
-      </div>
+      )}
     </section>
   );
 };

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @theme {
   --font-neue: "Bebas+Neue", sans-serif; 
@@ -26,7 +24,7 @@ html {
 
 body {
   margin: 0px;
-  background-color: #0e0e0e;
+  background-color: #101922;
 }
 
 .descriptions {

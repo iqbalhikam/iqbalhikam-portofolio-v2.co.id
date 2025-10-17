@@ -1,16 +1,22 @@
-'use client'
+'use client';
 import { useEffect, useState } from 'react';
 import { useShadow } from '@/hooks/useShadow';
 import { HomeFilled, InfoCircleFilled } from '@ant-design/icons';
+import Link from 'next/link';
 
 const NavBar = () => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
   const [isNear, setIsNear] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false); // 1. Tambahkan state untuk tracking mounting
 
   useEffect(() => {
-    const handleMouseMove = (event: { clientY: number }) => {
-      const distance = 100; // Jarak deteksi (misalnya 100px dari navbar)
-      const navY = window.innerHeight - 40; // Posisi navbar di bawah (bottom-10 ≈ -40px dari bottom)
+    // Tandai bahwa komponen sudah di-mount di sisi client
+    setHasMounted(true);
+
+    const mouseMoveHandler = (event: { clientY: number }) => {
+      const distance = 100;
+      // Gunakan nilai innerHeight yang valid setelah mounting
+      const navY = window.innerHeight - 40;
 
       if (event.clientY > navY - distance) {
         setIsNear(true);
@@ -19,11 +25,20 @@ const NavBar = () => {
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', mouseMoveHandler);
+
+    // Cleanup function
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', mouseMoveHandler);
     };
-  }, []);
+  }, []); // Cukup satu useEffect dengan dependency kosong
+
+  // Jika belum mounted, jangan render navbar sama sekali atau render placeholder
+  // Ini memastikan server dan client render pertama kali sama persis.
+  if (!hasMounted) {
+    return null; // Atau return UI placeholder/skeleton yang tidak bergantung pada state client
+  }
+
   return (
     <div>
       <header>
@@ -31,22 +46,26 @@ const NavBar = () => {
           <div className="flex flex-1 items-center justify-center">
             <nav
               aria-label="Global"
-              className={` z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md transition-all duration-300 hover:border hover:border-green-600/70 ${
-                isNear ? 'bottom-20' : '-bottom-7'
-              }`}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
+              className={`
+                z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full 
+                shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md 
+                transition-all duration-300 hover:border hover:border-green-600/70 
+                ${isNear ? 'bottom-20' : '-bottom-7'} 
+              `} // 2. Logika ini sekarang aman
+              onMouseMove={handleMouseMove} // Ini dari hook useShadow
+              onMouseLeave={handleMouseLeave} // Ini dari hook useShadow
               style={{ boxShadow: shadow }}>
+              {/* ... isi nav tetap sama ... */}
               <ul className="flex items-center gap-6 text-xl">
                 <li>
-                  <a href="#hero" className={`block text-white transition hover:text-green-600/75`}>
+                  <Link href="/" className={`block text-white transition hover:text-green-600/75`}>
                     <HomeFilled />
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#about" className=" text-white transition hover:text-green-600/75">
+                  <Link href="/aboutMe" className=" text-white transition hover:text-green-600/75">
                     <InfoCircleFilled />
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
