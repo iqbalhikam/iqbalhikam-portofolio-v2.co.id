@@ -2,6 +2,7 @@ import NavBar from '@/components/navbar/NavBar';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'] });
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
@@ -14,8 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      <NavBar/>
+      <body className={inter.className}>
+        {children}
+        <SpeedInsights />
+      </body>
+      <NavBar />
     </html>
   );
 }
