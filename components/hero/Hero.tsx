@@ -14,7 +14,7 @@ const Hero = () => {
   const { isVisible, sectionRef } = useShowSection(1000);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative w-full min-h-screen flex items-center justify-center bg-white dark:bg-[#101922] text-white">
+    <section ref={sectionRef} id="hero" className="relative w-full min-h-screen flex items-center justify-center bg-[#101922] text-white">
       {isVisible && (
         <div className="absolute inset-0 flex items-center justify-center">
           {/* profile */}
