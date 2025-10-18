@@ -183,6 +183,29 @@ body {
   transition: clip-path 0.4s;
 }
 
+/* KODE BARU (INSTAN) */
+.card-with-shadow {
+  /* Variabel CSS default */
+  --shadow-x: 0px;
+  --shadow-y: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: rgba(109, 93, 231, var(--shadow-opacity));
+
+  /* Terapkan shadow */
+  box-shadow: var(--shadow-x) var(--shadow-y) 30px 1px var(--shadow-color);
+
+  /* INI KUNCINYA:
+    Kita definisikan SEMUA transisi di sini.
+    - bottom: 0.3s (untuk naik/turun)
+    - border-color: 0.3s (untuk hover:border)
+    - --shadow-color: 0.4s (untuk fade-in/out shadow)
+    
+    'cubic-bezier(0.4, 0, 0.2, 1)' adalah 'ease-in-out' bawaan Tailwind.
+  */
+  transition-property: bottom, border-color, --shadow-color;
+  transition-duration: 0.3s, 0.3s, 0.4s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), ease-out;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50; 

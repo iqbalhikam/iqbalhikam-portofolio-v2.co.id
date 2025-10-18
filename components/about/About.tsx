@@ -3,10 +3,10 @@
 import { useShowSection } from '@/hooks/useShowSection';
 import React from 'react';
 import { motion } from 'framer-motion';
-import CardProject from './CardProject';
+import MeCard from './MeCard';
 
 const About = () => {
-  const {isVisible, sectionRef} = useShowSection(1000);
+  const { isVisible, sectionRef } = useShowSection(1000);
   return (
     <section ref={sectionRef} id="about" className="-z-50 bg-[#101922] w-full min-h-screen content-start text-white">
       {isVisible && (
@@ -23,12 +23,11 @@ const About = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center">
             <h2 className="text-4xl font-bold pb-10 pt-30">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <CardProject imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
-              <CardProject imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
-              <CardProject imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
+              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
+              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
+              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
             </div>
           </motion.div>
-          
         </>
       )}
       <div id="projects"></div>

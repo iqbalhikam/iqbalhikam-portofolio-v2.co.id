@@ -47,9 +47,10 @@ const NavBar = () => {
             <nav
               aria-label="Global"
               className={`
+                card-with-shadow
                 z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full 
                 shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md 
-                transition-all duration-300 hover:border hover:border-primary/70 
+                 hover:border hover:border-primary/70 
                 ${isNear ? 'bottom-20' : '-bottom-7'} 
               `} // 2. Logika ini sekarang aman
               onMouseMove={handleMouseMove} // Ini dari hook useShadow
@@ -66,6 +67,18 @@ const NavBar = () => {
                   <Link href="/aboutMe" className=" text-white transition hover:text-secondary/75">
                     <InfoCircleFilled />
                   </Link>
+                </li>
+
+                <li>
+                  <div className={`block text-white transition hover:text-secondary/75`}>
+                    <HomeFilled />
+                  </div>
+                </li>
+
+                <li>
+                  <div className={`block text-white transition hover:text-secondary/75`}>
+                    <HomeFilled />
+                  </div>
                 </li>
 
                 <li>
