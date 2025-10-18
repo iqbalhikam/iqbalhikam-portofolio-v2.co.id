@@ -12,7 +12,7 @@ export const useShadow = () => {
     const ratio = 0.1;
     const shadowX = offsetX * ratio;
     const shadowY = offsetY * ratio;
-    setShadow(`${shadowX}px ${shadowY}px 20px 5px #007934`);
+    setShadow(`${shadowX}px ${shadowY}px 20px 5px #6d5de7`);
   };
 
   const handleMouseLeave = () => {

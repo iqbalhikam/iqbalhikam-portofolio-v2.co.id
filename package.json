@@ -1,5 +1,5 @@
 {
-  "name": "3d-earth",
+  "name": "iqbalhikm-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,13 +19,18 @@
     "@react-three/rapier": "^1.4.0",
     "@studio-freight/lenis": "^1.0.25",
     "@tailwindcss/postcss": "^4.0.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "framer-motion-3d": "^10.16.4",
     "leva": "^0.9.35",
+    "lucide-react": "^0.546.0",
     "meshline": "^3.3.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.164.0"
   },
   "devDependencies": {
