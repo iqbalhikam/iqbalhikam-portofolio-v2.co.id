@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import PageTransition from '@/components/animation/PageTransition';
 
 const inter = Inter({ subsets: ['latin'] });
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
@@ -16,8 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
-        <SpeedInsights />
+        <PageTransition>
+          {children}
+        </PageTransition>
+          <SpeedInsights />
       </body>
       <NavBar />
     </html>

@@ -4,6 +4,7 @@ import CardProject from '@/components/about/MeCard';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react';
+import { certificatesData } from '@/lib/certificatesData';
 
 const AboutMe = () => {
   return (
@@ -49,8 +50,9 @@ const AboutMe = () => {
         </section>
         <section className="mb-16">
           <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center md:text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deleniti ad, voluptatum nostrum eligendi incidunt error? Ad perferendis vitae, voluptate maiores eius quod debitis nam aperiam nihil hic officiis reiciendis est
-            saepe quisquam sapiente repellendus quis cupiditate voluptatum. Eaque ratione quibusdam aut nostrum eligendi, facilis quis fugit voluptatem totam beatae!
+            I'm M Iqbal Fatkhul Hikam, a passionate and creative student. I have a deep interest in programming, which motivates me to continuously learn and develop. I graduated from Bina Insani University. I believe that self-development
+            is the key to achieving goals, and I'm always looking for opportunities to hone my skills and knowledge. I believe that every day is an opportunity to learn something new and create meaningful moments. In my life, I strive to be
+            a diligent person. I hope to contribute positively to the world around me and continue to grow as an individual.
           </p>
         </section>
         <section className="mb-16">
@@ -104,21 +106,9 @@ const AboutMe = () => {
         <section>
           <h2 className="text-3xl font-bold text-white mb-8 text-center md:text-left"> Certificate</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <MeCard
-              imageUrl="/assets/sertifikat/Certified Developer form alibbaba cloud/Certified Developer.png"
-              title="Certified Developer form alibbaba cloud"
-              desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet."
-            />
-            {/* <MeCard imageUrl="/assets/sertifikat/sertifikat eCommerce/sertifikat.jpg" title="Certified Developer form alibbaba cloud" desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet." /> */}
-            <MeCard imageUrl="/assets/sertifikat/sertifikatCyber/sertifikatCyber.jpg" title="Certified cyber security form Universitas Bina Insani" desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet." />
-            <MeCard
-              imageUrl="/assets/sertifikat/sertifikatData/sertifikat_course_177_3564668_311223190649_page-0001.jpg"
-              title="Certified Visualisation Data form Dicoding"
-              desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet."
-            />
-            <MeCard imageUrl="/assets/sertifikat/sertifikatFrontEnd/sertifikat_frontEnd1.jpg" title="Certified Front-End Developer form Dicoding" desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet." />
-            <MeCard imageUrl="/assets/sertifikat/sertifikatPython/sertifikat_python1.jpg" title="Certified Python Programming form Dicoding" desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet." />
-            <MeCard imageUrl="/assets/sertifikat/sertifikatWeb/sertifikat_webProgrammer1.jpg" title="Certified Web Programming form Dicoding" desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, amet." />
+            {certificatesData.map((certificate, index) => (
+              <MeCard key={index} imageUrl={certificate.certificatesImage[0].url} title={certificate.title} desc={certificate.description} slug={certificate.slug} />
+            ))}
           </div>
         </section>
       </div>
