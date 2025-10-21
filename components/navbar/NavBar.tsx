@@ -59,12 +59,12 @@ const NavBar = () => {
               {/* ... isi nav tetap sama ... */}
               <ul className="flex items-center gap-6 text-xl">
                 <li>
-                  <Link href="/" className={`block text-white transition hover:text-secondary/75`}>
+                  <Link passHref legacyBehavior href="/" className={`block text-white transition hover:text-secondary/75`}>
                     <HomeFilled />
                   </Link>
                 </li>
                 <li>
-                  <Link href="/aboutMe" className=" text-white transition hover:text-secondary/75">
+                  <Link passHref legacyBehavior href="/aboutMe" className=" text-white transition hover:text-secondary/75">
                     <InfoCircleFilled />
                   </Link>
                 </li>
