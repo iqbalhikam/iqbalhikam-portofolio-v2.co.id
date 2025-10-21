@@ -3,6 +3,8 @@ import { certificatesData } from '@/lib/certificatesData';
 import { Certificate } from '@/lib/types';
 import Link from 'next/link';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+import PageTransition from '@/components/animation/PageTransition';
+
 
 type CertificatePageProps = {
   params: {
@@ -20,7 +22,7 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
   console.log('certificate img: ', certificate?.certificatesImage[0].url);
 
   return (
-    <>
+    <PageTransition>
       <main className="flex-1 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 py-12">
         <div className="max-w-4xl mx-auto">
           <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
@@ -68,7 +70,7 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
           </div>
         </div>
       </main>
-    </>
+    </PageTransition>
   );
 };
 
