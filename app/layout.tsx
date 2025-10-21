@@ -10,14 +10,23 @@ const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 export const metadata: Metadata = {
   title: '3D ID CARD || Iqbal.Hikm',
   description: 'latihan 3D card',
+  icons: {
+    icon: [
+      {
+        url: '/assets/iqbal1.jpg',
+        type: 'image/png',
+      },
+    ]
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      
       <body className={inter.className}>
-          {children}
-          <SpeedInsights />
+        {children}
+        <SpeedInsights />
       </body>
       <NavBar />
     </html>
