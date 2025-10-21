@@ -19,8 +19,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <PageTransition>
           {children}
-        </PageTransition>
           <SpeedInsights />
+        </PageTransition>
       </body>
       <NavBar />
     </html>
