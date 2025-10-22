@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React from 'react';
 import { certificatesData } from '@/lib/certificatesData';
 import PageTransition from '@/components/animation/PageTransition';
+import Certificates from './components/Certificates';
 
 const AboutMe = () => {
   return (
@@ -105,14 +106,7 @@ const AboutMe = () => {
               </div>
             </div>
           </section>
-          <section>
-            <h2 className="text-3xl font-bold text-white mb-8 text-center md:text-left"> Certificate</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {certificatesData.map((certificate, index) => (
-                <MeCard key={index} imageUrl={certificate.certificatesImage[0].url} title={certificate.title} desc={certificate.description} slug={certificate.slug} />
-              ))}
-            </div>
-          </section>
+          <Certificates/>
         </div>
       </main>
     </PageTransition>
