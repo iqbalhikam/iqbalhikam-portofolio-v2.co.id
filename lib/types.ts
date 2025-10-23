@@ -7,29 +7,23 @@ export type Project = {
   tech: string[];
 };
 
-export type CertificateImage = {
-  id: number;
-  url: string;
-};
-
-export interface Certificate {
+export interface CertificateImage {
   id: string;
   created_at: string;
-  title: string;
-  issuedBy: string;
-  dateIssued: string; // Tipe 'date' akan dibaca sebagai string
   imageUrl: string;
-  url: string | null; // Bisa jadi null (ingat kita centang 'Is Nullable')
+  caption: string | null;
+  certificate_id: string;
 }
 
-// export type Certificate = {
-//   id: number;
-//   slug: string;
-//   title: string;
-//   from: string;
-//   complited: string;
-//   expired: string;
-//   serialNumber: string;
-//   description: string;
-//   certificatesImage: CertificateImage[];
-// };
+export type Certificate = {
+  id : string;  
+  createdAt: Date;
+  slug: string;
+  title: string;
+  issuedBy: string;
+  dateissued: Date;
+  expierd: Date;
+  thumbnailUrl: string;
+  description: string;
+  sn: string;
+};
