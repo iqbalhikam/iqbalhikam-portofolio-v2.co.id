@@ -1,8 +1,6 @@
-'use client';
-
-import About from '@/components/about/About';
-import Hero from '@/components/hero/Hero';
 import PageTransition from '@/components/animation/PageTransition';
+import Hero from './components/Hero';
+import About from './components/About';
 
 export default function Home() {
   return (

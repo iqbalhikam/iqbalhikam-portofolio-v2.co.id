@@ -2,12 +2,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import App from '../band/App';
+
 import { UseTimeOut } from '@/hooks/useTimeOut';
-import ProfileHoverEffect from '../ui/ProfileHoverEffect';
-import AnimatedText from '../ui/AnimatedText';
+
 import { useShowSection } from '@/hooks/useShowSection';
-import About from '../about/About';
+import App from '@/components/band/App';
+
 
 const Hero = () => {
   const showApp = UseTimeOut(2000);

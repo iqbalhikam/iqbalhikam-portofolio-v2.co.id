@@ -3,7 +3,9 @@
 import { useShowSection } from '@/hooks/useShowSection';
 import React from 'react';
 import { motion } from 'framer-motion';
-import MeCard from './MeCard';
+import MeCard from '../../../components/about/MeCard';
+import GitHubCalendar from 'react-github-calendar';
+import AnimateTitle from '@/components/animation/AnimateTitle';
 
 const About = () => {
   const { isVisible, sectionRef } = useShowSection(1000);
@@ -12,13 +14,12 @@ const About = () => {
       {isVisible && (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center">
-            <h2 className="text-4xl font-bold py-10">About Me</h2>
-            <p className="text-center px-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione tempora tempore numquam quo amet distinctio id voluptates. Magnam vero ratione ducimus commodi tempora impedit veniam ex assumenda velit ut. Quis voluptatem quos
-              expedita dignissimos officia vel accusamus explicabo debitis quaerat, id, ab voluptas culpa suscipit. Quos, a! Repudiandae quis illo recusandae iusto nemo vitae eum aliquam, veniam quas maiores suscipit! Quos vitae, quae
-              dignissimos velit eum similique iure quas ipsum nam sit explicabo voluptatum amet ratione tempore laudantium dolor, pariatur, impedit accusamus qui? Et laudantium reiciendis ea cumque ab voluptatum. Corporis sed unde
-              asperiores eum facilis voluptatem iste similique libero?
-            </p>
+            <h2 className="text-4xl font-bold py-10">
+              <AnimateTitle title="contributions"  wordSpace=" " charSpace=" "/>
+            </h2>
+            <div>
+              <GitHubCalendar username="iqbalhikam" />
+            </div>
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center">
             <h2 className="text-4xl font-bold pb-10 pt-30">Featured Projects</h2>

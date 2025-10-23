@@ -4,8 +4,13 @@ import { useShadow } from '@/hooks/useShadow';
 import { HomeFilled, InfoCircleFilled } from '@ant-design/icons';
 import { IoIosContact } from 'react-icons/io';
 import Link from 'next/link';
+import NavLink from './NavLink';
 
-const NavBar = () => {
+interface NavBarProps {
+  children?: React.ReactNode;
+}
+
+const NavBar = ( {  children } : NavBarProps) => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
   const [isNear, setIsNear] = useState(false);
   const [hasMounted, setHasMounted] = useState(false); // 1. Tambahkan state untuk tracking mounting
@@ -59,7 +64,8 @@ const NavBar = () => {
               style={{ boxShadow: shadow }}>
               {/* ... isi nav tetap sama ... */}
               <ul className="flex items-center gap-6 text-xl">
-                <li>
+                {children}
+                {/* <li>
                   <Link  href="/" className={`block text-white transition hover:text-secondary/75`}>
                     <HomeFilled />
                   </Link>
@@ -74,7 +80,7 @@ const NavBar = () => {
                   <Link  href="/contact" className={`block text-white transition hover:text-secondary/75`}>
                     <IoIosContact className="text-2xl"   />
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
