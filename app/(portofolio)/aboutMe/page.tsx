@@ -106,7 +106,7 @@ const AboutMe = () => {
               </div>
             </div>
           </section>
-          <Certificates/>
+          {/* <Certificates/> */}
         </div>
       </main>
     </PageTransition>

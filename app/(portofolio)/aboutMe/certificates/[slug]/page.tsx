@@ -19,7 +19,7 @@ function getCertificateDetails(slug: string): Certificate | undefined {
 const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
   const { slug } = params;
   const certificate = getCertificateDetails(slug);
-  console.log('certificate img: ', certificate?.certificatesImage[0].url);
+  // console.log('certificate img: ', certificate?.certificatesImage[0].url);
 
   return (
     <PageTransition>
@@ -32,17 +32,17 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
             </span>
             <span className="text-sm font-bold">Back to Portfolio</span>
           </Link>
-          <div className="mb-12 grid lg:grid-cols-2 sm:grid-cols-1 gap-4">{certificate && certificate?.certificatesImage.map((image) => <ZoomImage key={image.id} imageUrl={image.url} />)}</div>
+          {/* <div className="mb-12 grid lg:grid-cols-2 sm:grid-cols-1 gap-4">{certificate && certificate?.certificatesImage.map((image) => <ZoomImage key={image.id} imageUrl={image.url} />)}</div> */}
 
           <div className="space-y-10">
             <section>
               <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{certificate?.title}</h1>
-              <p className="text-lg font-bold text-white mb-1">from {certificate?.from}</p>
+              {/* <p className="text-lg font-bold text-white mb-1">from {certificate?.from}</p>
               <p className="text-sm text-gray-400">
                 Complited : {certificate?.complited}
                 <br />
                 Expired : {certificate?.expired}
-              </p>
+              </p> */}
             </section>
             <div className="border-t border-gray-200/50 dark:border-gray-800/50"></div>
             <section>
@@ -53,11 +53,11 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
             <section>
               <h2 className="text-3xl font-bold text-white mb-6">Certificate Details</h2>
               <div className="flex flex-col gap-4">
-                {certificate?.certificatesImage.map((image) => (
+                {/* {certificate?.certificatesImage.map((image) => (
                   <div className="w-full aspect-video rounded-xl overflow-hidden " key={image.id}>
                     <div className="w-full h-full bg-center bg-no-repeat bg-cover aspect-square" style={{ backgroundImage: `url("${image.url}");` }}></div>
                   </div>
-                ))}
+                ))} */}
               </div>
             </section>
             <div className="flex justify-center pt-8">
