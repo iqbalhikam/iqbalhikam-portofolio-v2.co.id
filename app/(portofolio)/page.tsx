@@ -1,6 +1,6 @@
 import PageTransition from '@/components/animation/PageTransition';
 import Hero from './components/Hero';
-import About from './components/About';
+import Introduction from './components/Introduction';
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <div className="relative w-full min-h-screen">
         <>
           <Hero />
-          <About />
+          <Introduction />
         </>
       </div>
     </PageTransition>

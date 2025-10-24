@@ -8,7 +8,7 @@ interface NavLinkProps {
 const NavLink = ( { href, children } : NavLinkProps) => {
     return (
       <li>
-        <Link href={href || "#"} className={`block text-white transition hover:text-secondary/75`}>
+        <Link href={href || "#"} className={` text-white transition hover:text-secondary/75 flex flex-col items-center gap-1`}>
           {children}
         </Link>
       </li>

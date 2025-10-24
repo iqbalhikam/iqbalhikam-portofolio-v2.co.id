@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import MeCard from '@/components/about/MeCard';
-import CardProject from '@/components/about/MeCard';
+import MeCard from '@/components/cards/MeCard';
+import CardProject from '@/components/cards/MeCard';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react';

@@ -3,11 +3,11 @@
 import { useShowSection } from '@/hooks/useShowSection';
 import React from 'react';
 import { motion } from 'framer-motion';
-import MeCard from '../../../components/about/MeCard';
+import MeCard from '../../../components/cards/MeCard';
 import GitHubCalendar from 'react-github-calendar';
 import AnimateTitle from '@/components/animation/AnimateTitle';
 
-const About = () => {
+const Introduction = () => {
   const { isVisible, sectionRef } = useShowSection(1000);
   return (
     <section ref={sectionRef} id="about" className="-z-50 bg-[#101922] w-full min-h-screen content-start text-white">
@@ -15,7 +15,7 @@ const About = () => {
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center">
             <h2 className="text-4xl font-bold py-10">
-              <AnimateTitle title="contributions"  wordSpace=" " charSpace=" "/>
+              <AnimateTitle title="contributions" wordSpace=" " charSpace=" " />
             </h2>
             <div>
               <GitHubCalendar username="iqbalhikam" />
@@ -36,4 +36,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Introduction;
