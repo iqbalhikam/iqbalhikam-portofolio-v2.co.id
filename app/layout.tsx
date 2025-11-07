@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/assets/iqbal1.jpg',
+        url: 'https://avatars.githubusercontent.com/u/147716322?v=4',
         type: 'image/png',
       },
     ]
