@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
-  title: '3D ID CARD || Iqbal.Hikm',
+  title: 'Portofolio || Iqbal.Hikm',
   description: 'latihan 3D card',
   icons: {
     icon: [
