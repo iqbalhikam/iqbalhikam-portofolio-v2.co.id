@@ -36,7 +36,7 @@ const AboutMe = () => {
                   className="absolute inset-0 w-full h-full object-cover 
                group-hover:scale-110 
                transition-all duration-500 ease-in-out z-10"
-                  src="https://avatars.githubusercontent.com/u/147716322?v=4"
+                  src="/assets/iqbal1.jpg"
                   alt="Foto Profil M Iqbal"
                   fill
                   style={{ objectFit: 'cover' }}
