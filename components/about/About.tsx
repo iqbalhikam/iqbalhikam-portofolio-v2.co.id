@@ -23,9 +23,11 @@ const About = () => {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center">
             <h2 className="text-4xl font-bold pb-10 pt-30">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="App Desktop Inventory" desc="Solusi Manajemen Inventaris Modern untuk Bisnis Anda" />
               <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/task-flow/main/Screenshot%202025-11-09%20001041.png" title="Task Flow" desc="Projek ini sedang dalam progres development" />
-              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
+              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="App Desktop Inventory" desc="Solusi Manajemen Inventaris Modern untuk Bisnis Anda" />
+              <MeCard imageUrl="assets/projects/webApp/Kasir.png" title="Web Kasir" desc="Projek ini di buat untuk memenuhi tugas UAS" />
+              <MeCard imageUrl="assets/projects/design/dokterPintar.png" title="DESIGN UI/UX Dokter Pintar" desc="Projek ini di buat untuk memenuhi tugas akhir" />
+              <MeCard imageUrl="assets/projects/webApp/bootWa.png" title="Boot Wa(Back End APP)" desc="Projek ini di bangun menggunakan nodejs" />
             </div>
           </motion.div>
         </>
