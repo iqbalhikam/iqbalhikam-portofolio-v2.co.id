@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import MeCard from '@/components/about/MeCard';
-import CardProject from '@/components/about/MeCard';
+import MeCard from '@/components/card/MeCard';
+import CardProject from '@/components/card/MeCard';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react';
@@ -109,7 +109,7 @@ const AboutMe = () => {
             <h2 className="text-3xl font-bold text-white mb-8 text-center md:text-left"> Certificate</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certificatesData.map((certificate, index) => (
-                <MeCard key={index} imageUrl={certificate.certificatesImage[0].url} title={certificate.title} desc={certificate.description} slug={certificate.slug} />
+                <MeCard key={index} imageUrl={certificate.certificatesImage[0].url} title={certificate.title} desc={certificate.description} slug={`aboutMe/${certificate.slug}`} />
               ))}
             </div>
           </section>

@@ -19,7 +19,7 @@ const MeCard = ({ imageUrl, title, desc, slug }: CardProjectProps) => {
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 flex-1 line-clamp-1">{desc}</p>
         </CardContent>
         <CardFooter>
-          <Link className="mt-4 text-sm font-semibold text-primary hover:underline" href={slug ? `aboutMe/certificates/${slug}` : `#`} >
+          <Link className="mt-4 text-sm font-semibold text-primary hover:underline" href={slug ? slug : `#`} >
             View Details
           </Link>
         </CardFooter>
