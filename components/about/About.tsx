@@ -24,7 +24,7 @@ const About = () => {
             <h2 className="text-4xl font-bold pb-10 pt-30">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
-              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
+              <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/task-flow/main/Screenshot%202025-11-09%20001041.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
               <MeCard imageUrl="https://raw.githubusercontent.com/iqbalhikam/INVENTORYKU/main/Register.png" title="Project Alpha" desc="A mobile app for fitness enthusiasts." />
             </div>
           </motion.div>
