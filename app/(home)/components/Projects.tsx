@@ -1,3 +1,4 @@
+'use client';
 import MeCard from '@/components/card/MeCard';
 import { useShowSection } from '@/hooks/useShowSection';
 import { projectsData } from '@/lib/projectsData';
