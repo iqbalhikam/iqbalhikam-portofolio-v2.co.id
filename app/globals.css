@@ -3,6 +3,8 @@
 @plugin 'tailwindcss-animate';
 @import "tailwindcss";
 @import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tailwind-scrollbar-hide/v4';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -160,7 +162,6 @@ html {
 
 body {
   margin: 0px;
-  background-color: #101922;
 }
 
 .descriptions {

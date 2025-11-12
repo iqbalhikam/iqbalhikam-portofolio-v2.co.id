@@ -10,8 +10,11 @@ export const useShowSection = (delay: number) => {
         if (entry.isIntersecting) {
           setTimeout(() => setIsVisible(true), delay); // Delay 1 detik sebelum menampilkan App
         }
+        else {
+          setIsVisible(false);
+        }
       },
-      { threshold: 0.3 } // Aktif saat 30% dari elemen terlihat
+      { threshold: 0.2 } // Aktif saat 30% dari elemen terlihat
     );
 
     if (sectionRef.current) {

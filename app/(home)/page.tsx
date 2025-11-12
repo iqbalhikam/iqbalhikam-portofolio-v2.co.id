@@ -5,22 +5,19 @@ import Hero from '@/app/(home)/components/Hero';
 import PageTransition from '@/components/animation/PageTransition';
 import Projects from './components/Projects';
 import { useShowSection } from '@/hooks/useShowSection';
+import ThemeToggle from '@/components/theme/ThemeToggle';
 
 export default function Home() {
-  const { isVisible, sectionRef } = useShowSection(1000);
   return (
     <PageTransition>
-      <div className="relative w-full min-h-screen">
+      <div className="relative min-w-full min-h-screen overflow-auto scrollbar-hide bg-white dark:bg-background">
+        <ThemeToggle />
+        
         <Hero />
-        <section ref={sectionRef} id="about" className="-z-50 bg-[#101922] w-full min-h-screen content-start text-white">
-          {isVisible ? (
-            <>
-              <About />
 
-              <Projects />
-            </>
-          ) : (<div id="projects"></div>)}
-        </section>
+        <About />
+
+        <Projects id="projects" />
       </div>
     </PageTransition>
   );

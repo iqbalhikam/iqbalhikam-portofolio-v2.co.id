@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
     projectImage: [
       {
         id: 1,
-        url: 'assets/projects/webApp/Kasir.png',
+        url: '/assets/projects/webApp/Kasir.png',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const projectsData: Project[] = [
     projectImage: [
       {
         id: 1,
-        url: 'assets/projects/design/dokterPintar.png',
+        url: '/assets/projects/design/dokterPintar.png',
       },
     ],
   },
@@ -92,7 +92,7 @@ export const projectsData: Project[] = [
     projectImage: [
       {
         id: 1,
-        url: 'assets/projects/webApp/bootWa.png',
+        url: '/assets/projects/webApp/bootWa.png',
       },
     ],
   },
