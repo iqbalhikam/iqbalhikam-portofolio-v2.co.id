@@ -19,7 +19,7 @@ const MeCard = ({ imageUrl, title, desc, slug, animateScale }: CardProjectProps)
             <div className="absolute inset-0  group-hover:bg-white/10 group-hover:backdrop-blur-xs transition-colors duration-300"></div>
           </CardHeader>
           <CardContent className="p-6 flex-1 flex flex-col">
-            <p className="text-lg font-bold text-white">{title}</p>
+            <p className="text-lg font-bold text-secondary-foreground">{title}</p>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 flex-1 line-clamp-1">{desc}</p>
           </CardContent>
           <CardFooter>

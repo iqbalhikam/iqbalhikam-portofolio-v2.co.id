@@ -4,6 +4,7 @@ import { Certificate } from '@/lib/types';
 import Link from 'next/link';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import PageTransition from '@/components/animation/PageTransition';
+import Image from 'next/image';
 
 
 type CertificatePageProps = {
@@ -35,8 +36,8 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
 
           <div className="space-y-10">
             <section>
-              <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{certificate?.title}</h1>
-              <p className="text-lg font-bold text-white mb-1">from {certificate?.from}</p>
+              <h1 className="text-4xl md:text-5xl font-black text-secondary-foreground mb-4">{certificate?.title}</h1>
+              <p className="text-lg font-bold text-secondary-foreground mb-1">from {certificate?.from}</p>
               <p className="text-sm text-gray-400">
                 Complited : {certificate?.complited}
                 <br />
@@ -45,23 +46,23 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
             </section>
             <div className="border-t border-gray-200/50 dark:border-gray-800/50"></div>
             <section>
-              <h2 className="text-3xl font-bold text-white mb-4">Description</h2>
+              <h2 className="text-3xl font-bold text-secondary-foreground mb-4">Description</h2>
               <p className="text-gray-600 dark:text-gray-400">{certificate?.description}</p>
             </section>
 
             <section>
-              <h2 className="text-3xl font-bold text-white mb-6">Certificate Details</h2>
+              <h2 className="text-3xl font-bold text-secondary-foreground mb-6">Certificate Details</h2>
               <div className="flex flex-col gap-4">
                 {certificate?.certificatesImage.map((image) => (
                   <div className="w-full aspect-video rounded-xl overflow-hidden " key={image.id}>
-                    <div className="w-full h-full bg-center bg-no-repeat bg-cover aspect-square" style={{ backgroundImage: `url("${image.url}");` }}></div>
+                    <Image className="w-full h-full bg-center bg-no-repeat bg-cover aspect-square" src={image.url} alt="" width={900} height={900}/>
                   </div>
                 ))}
               </div>
             </section>
             <div className="flex justify-center pt-8">
               <Link
-                className="inline-flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-sm font-bold tracking-wide shadow-lg hover:bg-primary/90 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30"
+                className="inline-flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-secondary-foreground text-sm font-bold tracking-wide shadow-lg hover:bg-primary/90 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30"
                 href="/aboutMe">
                 Back to Portfolio
               </Link>

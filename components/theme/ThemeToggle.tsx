@@ -21,7 +21,7 @@ const handle = {
 };
 
 const ThemeToggle = () => {
-  const [isOn, setIsOn] = useState(false);
+  const [isOn, setIsOn] = useState(true);
   const { setTheme, theme } = useTheme();
 
   const toggleSwitch = () => setIsOn(!isOn);

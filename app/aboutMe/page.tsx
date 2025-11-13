@@ -6,11 +6,12 @@ import Image from 'next/image';
 import React from 'react';
 import { certificatesData } from '@/lib/certificatesData';
 import PageTransition from '@/components/animation/PageTransition';
+import MeSkills from './components/MeSkills';
 
 const AboutMe = () => {
   return (
     <PageTransition>
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-secondary dark:text-white">
         <div className="max-w-4xl mx-auto">
           <section className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16">
             <div className="flex-shrink-0">
@@ -45,65 +46,21 @@ const AboutMe = () => {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-white">M Iqbal Fatkhul Hikam</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-secondary-foreground ">M Iqbal Fatkhul Hikam</h1>
               <p className="text-lg text-primary font-medium mt-2">Software Engineer</p>
-              <p className="text-base text-gray-400 mt-1">Based in Bojonegoro, ID</p>
+              <p className="text-base text-secondary-foreground/50 dark:text-secondary mt-1">Based in Bojonegoro, ID</p>
             </div>
           </section>
           <section className="mb-16">
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center md:text-left">
+            <p className="text-base md:text-lg text-secondary-foreground  leading-relaxed text-center md:text-left">
               I'm M Iqbal Fatkhul Hikam, a passionate and creative student. I have a deep interest in programming, which motivates me to continuously learn and develop. I graduated from Bina Insani University. I believe that
               self-development is the key to achieving goals, and I'm always looking for opportunities to hone my skills and knowledge. I believe that every day is an opportunity to learn something new and create meaningful moments. In my
               life, I strive to be a diligent person. I hope to contribute positively to the world around me and continue to grow as an individual.
             </p>
           </section>
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center md:text-left">Skills</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-              {/* Skill 1: Bahasa */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-baseline">
-                  <p className="text-base font-medium text-gray-200">JavaScript / TypeScript</p>
-                  <p className="text-sm font-normal text-gray-400">90%</p>
-                </div>
-                <div className="w-full bg-primary/20 rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-
-              {/* Skill 2: Framework Front-End */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-baseline">
-                  <p className="text-base font-medium text-gray-200">React.js</p>
-                  <p className="text-sm font-normal text-gray-400">85%</p>
-                </div>
-                <div className="w-full bg-primary/20 rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '85%' }}></div>
-                </div>
-              </div>
-
-              {/* Skill 3: Framework Back-End */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-baseline">
-                  <p className="text-base font-medium text-gray-200">Node.js (Express)</p>
-                  <p className="text-sm font-normal text-gray-400">80%</p>
-                </div>
-                <div className="w-full bg-primary/20 rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '80%' }}></div>
-                </div>
-              </div>
-
-              {/* Skill 4: Database */}
-              <div className="space-y-1">
-                <div className="flex justify-between items-baseline">
-                  <p className="text-base font-medium text-gray-200">SQL (PostgreSQL / MySQL)</p>
-                  <p className="text-sm font-normal text-gray-400">75%</p>
-                </div>
-                <div className="w-full bg-primary/20 rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: '75%' }}></div>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-3xl font-bold text-secondary-foreground mb-8 text-center md:text-left">Skills</h2>
+            <MeSkills/>
           </section>
           <section>
             <h2 className="text-3xl font-bold text-white mb-8 text-center md:text-left"> Certificate</h2>

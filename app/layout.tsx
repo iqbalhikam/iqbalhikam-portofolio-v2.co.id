@@ -4,13 +4,13 @@ import type { Metadata } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import ThemeToggle from '@/components/theme/ThemeToggle';
 
 const inter = Inter({ subsets: ['latin'] });
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: 'Portofolio || Iqbal.Hikm',
-  description: 'latihan 3D card',
   icons: {
     icon: [
       {
@@ -28,11 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} scrollbar-hide`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
+          <ThemeToggle />
         </ThemeProvider>
         <SpeedInsights />
       </body>
       <NavBar />
-      
     </html>
   );
 }
