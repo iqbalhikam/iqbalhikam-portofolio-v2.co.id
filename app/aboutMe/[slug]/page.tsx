@@ -34,7 +34,7 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
           </ButtonBack>
           {/* <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
           </Link> */}
-          <div className="mb-12 grid lg:grid-cols-2 sm:grid-cols-1 gap-4">{certificate && certificate?.certificatesImage.map((image) => <ZoomImage key={image.id} imageUrl={image.url} />)}</div>
+          <div className="mb-12 hidden lg:grid lg:grid-cols-2 sm:grid-cols-1 gap-4">{certificate && certificate?.certificatesImage.map((image) => <ZoomImage key={image.id} imageUrl={image.url} />)}</div>
 
           <div className="space-y-10">
             <section>
