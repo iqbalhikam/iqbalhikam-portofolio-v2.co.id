@@ -30,7 +30,7 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
               {' '}
               <IoMdArrowRoundBack />{' '}
             </span>
-            <span className="text-sm font-bold">Back to Portfolio</span>
+            <span className="text-sm font-bold">Back</span>
           </ButtonBack>
           {/* <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
           </Link> */}
