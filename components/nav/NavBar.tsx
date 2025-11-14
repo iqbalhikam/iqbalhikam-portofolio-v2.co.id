@@ -4,15 +4,18 @@ import { useShadow } from '@/hooks/useShadow';
 import { HomeFilled, InfoCircleFilled } from '@ant-design/icons';
 import { IoIosContact } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
+import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 
 const NavBar = () => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
   const [isNear, setIsNear] = useState(false);
   const [hasMounted, setHasMounted] = useState(false); // 1. Tambahkan state untuk tracking mounting
   const [showNav, setShowNav] = useState(false);
+
+  
 
   useEffect(() => {
     // Tandai bahwa komponen sudah di-mount di sisi client
@@ -44,28 +47,39 @@ const NavBar = () => {
     return null; // Atau return UI placeholder/skeleton yang tidak bergantung pada state client
   }
 
+  const headleSetShowNav = () => {
+    setShowNav(!showNav);
+    setTimeout(() => {
+      setShowNav(false);
+    } , 5000);
+  };
+
   return (
     <div>
       <header>
         <div className="relative flex md:hidden lg:hidden cl">
           <nav className=" text-white fixed z-50 left-4 top-6 flex items-center">
-            <Button onClick={() => setShowNav(!showNav)} variant={'ghost'} className="hover:bg-transparent">
-              <IoMenu />
+            <Button onClick={headleSetShowNav} variant={'ghost'} className="hover:bg-transparent">
+              <TiThMenu className="text-secondary-foreground" />
             </Button>
-            <motion.ul initial={{ opacity: 0 }} animate={{ opacity: showNav ? 1 : 0 }} className={`text-sm  flex gap-5 ${showNav ? 'flex' : 'hidden'}`}>
-              <motion.li initial={{ scale: 0 }} animate={{ scale: showNav ? 1 : 0 }}>
+            <motion.ul
+              initial={{ x: -10, opacity: 0 }}
+              animate={{ x: showNav ? 1 : -10, opacity: showNav ? 1 : 0 }}
+              transition={{ duration: 0.5 }}
+              className={`text-xs text-secondary-foreground  bg-accent-foreground/10 backdrop-blur-sm p-2 px-3 rounded-full flex gap-5 ${showNav ? 'flex' : 'hidden'}`}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.5 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
                 <Link className="hover:text-primary" href="/">
                   Home
                 </Link>
               </motion.li>
-              <motion.li initial={{ scale: 0 }} animate={{ scale: showNav ? 1 : 0 }}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.7 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
                 <Link className="hover:text-primary" href="/aboutMe">
-                  About Me
+                  About
                 </Link>
               </motion.li>
-              <motion.li initial={{ scale: 0 }} animate={{ scale: showNav ? 1 : 0 }}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.9 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
                 <Link className="hover:text-primary" href="/contact">
-                  Contact Me
+                  Contact
                 </Link>
               </motion.li>
             </motion.ul>
@@ -78,7 +92,7 @@ const NavBar = () => {
               className={`
                 card-with-shadow
                 z-50 fixed left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full 
-                shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-md 
+                shadow-lg flex items-center gap-6 bg-black/20 backdrop-blur-xs 
                  hover:border hover:border-primary/70 
                 ${isNear ? 'bottom-20' : '-bottom-7'} 
               `} // 2. Logika ini sekarang aman
@@ -88,18 +102,18 @@ const NavBar = () => {
               {/* ... isi nav tetap sama ... */}
               <ul className="flex items-center gap-6 text-xl">
                 <li>
-                  <Link href="/" className={`block text-white transition hover:text-secondary/75`}>
+                  <Link href="/" className={`block text-white transition hover:text-primary`}>
                     <HomeFilled />
                   </Link>
                 </li>
                 <li>
-                  <Link href="/aboutMe" className=" text-white transition hover:text-secondary/75">
+                  <Link href="/aboutMe" className=" text-white transition hover:text-primary">
                     <InfoCircleFilled />
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/contact" className={`block text-white transition hover:text-secondary/75`}>
+                  <Link href="/contact" className={`block text-white transition hover:text-primary`}>
                     <IoIosContact className="text-2xl" />
                   </Link>
                 </li>

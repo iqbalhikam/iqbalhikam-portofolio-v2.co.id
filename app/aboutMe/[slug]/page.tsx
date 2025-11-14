@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import PageTransition from '@/components/animation/PageTransition';
 import Image from 'next/image';
-
+import ButtonBack from '@/components/nav/ButtonBack';
 
 type CertificatePageProps = {
   params: {
@@ -23,15 +23,17 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
 
   return (
     <PageTransition>
-      <main className="flex-1 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 py-12">
+      <main className="flex-1 px-4 pt-20 lg:pt-0 sm:px-6 md:px-10 lg:px-20 xl:px-40 py-12">
         <div className="max-w-4xl mx-auto">
-          <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
+          <ButtonBack className="inline-flex items-center gap-2 text-primary mb-8 group bg-transparent hover:bg-transparent">
             <span className="material-symbols-outlined transform group-hover:-translate-x-1 transition-transform">
               {' '}
               <IoMdArrowRoundBack />{' '}
             </span>
             <span className="text-sm font-bold">Back to Portfolio</span>
-          </Link>
+          </ButtonBack>
+          {/* <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
+          </Link> */}
           <div className="mb-12 grid lg:grid-cols-2 sm:grid-cols-1 gap-4">{certificate && certificate?.certificatesImage.map((image) => <ZoomImage key={image.id} imageUrl={image.url} />)}</div>
 
           <div className="space-y-10">
@@ -55,17 +57,15 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
               <div className="flex flex-col gap-4">
                 {certificate?.certificatesImage.map((image) => (
                   <div className="w-full aspect-video rounded-xl overflow-hidden " key={image.id}>
-                    <Image className="w-full h-full bg-center bg-no-repeat bg-cover aspect-square" src={image.url} alt="" width={900} height={900}/>
+                    <Image className="w-full h-full bg-center bg-no-repeat bg-cover aspect-square" src={image.url} alt="" width={900} height={900} />
                   </div>
                 ))}
               </div>
             </section>
             <div className="flex justify-center pt-8">
-              <Link
-                className="inline-flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-secondary-foreground text-sm font-bold tracking-wide shadow-lg hover:bg-primary/90 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30"
-                href="/aboutMe">
+              <ButtonBack className="inline-flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-secondary-foreground text-sm font-bold tracking-wide shadow-lg hover:bg-primary/90 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30">
                 Back to Portfolio
-              </Link>
+              </ButtonBack>
             </div>
           </div>
         </div>
