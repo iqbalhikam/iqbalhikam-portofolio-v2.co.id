@@ -7,6 +7,7 @@ import PageTransition from '@/components/animation/PageTransition';
 import Image from 'next/image';
 import ButtonBack from '@/components/nav/ButtonBack';
 
+
 type CertificatePageProps = {
   params: {
     slug: string;
@@ -30,7 +31,7 @@ const DetailCertificatesPage = ({ params }: CertificatePageProps) => {
               {' '}
               <IoMdArrowRoundBack />{' '}
             </span>
-            <span className="text-sm font-bold">Back</span>
+            <span className="text-sm font-bold">Back to Portofolio</span>
           </ButtonBack>
           {/* <Link className="inline-flex items-center gap-2 text-primary mb-8 group" href="/aboutMe">
           </Link> */}

@@ -7,7 +7,7 @@ type AnimatedTextProps = {
   id: string;
 };
 const Projects = ({ id }: AnimatedTextProps) => {
-  const { isVisible, sectionRef } = useShowSection(1000);
+  const { isVisible, sectionRef } = useShowSection(100);
   return (
     <div className="min-h-screen ">
       <motion.div ref={sectionRef} id={id ? id : ''} initial={{ opacity: 0 }} animate={{ opacity: isVisible ? 1 : 0 }} className="flex flex-col items-center justify-center min-h-full">

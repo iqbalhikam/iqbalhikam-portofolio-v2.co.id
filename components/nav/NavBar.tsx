@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useShadow } from '@/hooks/useShadow';
 import { HomeFilled, InfoCircleFilled } from '@ant-design/icons';
 import { IoIosContact } from 'react-icons/io';
-import { IoMenu } from 'react-icons/io5';
+import { CgClose } from 'react-icons/cg';
 import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
 import { Button } from '../ui/button';
@@ -14,8 +14,6 @@ const NavBar = () => {
   const [isNear, setIsNear] = useState(false);
   const [hasMounted, setHasMounted] = useState(false); // 1. Tambahkan state untuk tracking mounting
   const [showNav, setShowNav] = useState(false);
-
-  
 
   useEffect(() => {
     // Tandai bahwa komponen sudah di-mount di sisi client
@@ -49,35 +47,35 @@ const NavBar = () => {
 
   const headleSetShowNav = () => {
     setShowNav(!showNav);
-    setTimeout(() => {
-      setShowNav(false);
-    } , 5000);
   };
 
   return (
     <div>
       <header>
-        <div className="relative flex md:hidden lg:hidden cl">
-          <nav className=" text-white fixed z-50 left-4 top-6 flex items-center">
-            <Button onClick={headleSetShowNav} variant={'ghost'} className="hover:bg-transparent">
-              <TiThMenu className="text-secondary-foreground" />
-            </Button>
+        <div className="relative flex md:hidden lg:hidden">
+          <nav className=" text-white fixed z-50 left-4 top-6 flex items-center gap-2">
+            <button onClick={headleSetShowNav} className="z-50 hover:bg-transparent ">
+              <motion.span initial={{ scale: 0 }} animate={{ scale: showNav ? 1 : 0 }}>
+                <TiThMenu className={`text-2xl ${showNav ? 'hidden' : 'flex'}`} />
+                <CgClose className={`text-2xl ${showNav ? 'flex' : 'hidden'}`} />
+              </motion.span>
+            </button>
             <motion.ul
-              initial={{ x: -10, opacity: 0 }}
-              animate={{ x: showNav ? 1 : -10, opacity: showNav ? 1 : 0 }}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: showNav ? 1 : -20, opacity: showNav ? 1 : 0 }}
               transition={{ duration: 0.5 }}
-              className={`text-xs text-secondary-foreground  bg-accent-foreground/10 backdrop-blur-sm p-2 px-3 rounded-full flex gap-5 ${showNav ? 'flex' : 'hidden'}`}>
-              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.5 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
+              className={`text-xs text-secondary-foreground  bg-accent-foreground/10 backdrop-blur-sm p-2 px-3 rounded-full flex gap-5 `}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.5 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale: 0 }}>
                 <Link className="hover:text-primary" href="/">
                   Home
                 </Link>
               </motion.li>
-              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.7 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.7 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale: 0 }}>
                 <Link className="hover:text-primary" href="/aboutMe">
                   About
                 </Link>
               </motion.li>
-              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.9 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale : 0 }}>
+              <motion.li initial={{ scale: 0 }} transition={{ delay: showNav ? 0.9 : 0 }} animate={{ scale: showNav ? 1 : 0 }} exit={{ scale: 0 }}>
                 <Link className="hover:text-primary" href="/contact">
                   Contact
                 </Link>
