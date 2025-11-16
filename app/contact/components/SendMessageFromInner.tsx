@@ -14,7 +14,7 @@ type SendMessageFromInnerProps = {
 const SendMessageFromInner = ({ onSendMessageSubmit, isLoading, buttonText }: SendMessageFromInnerProps) => {
   const form = useFormContext<SendMessageFormSchema>();
   return (
-    <form onSubmit={form.handleSubmit(onSendMessageSubmit)}>
+    <form onSubmit={form.handleSubmit(onSendMessageSubmit)} >
       <div className='flex  w-full gap-5 '>
         <FormField
           control={form.control}
@@ -26,7 +26,7 @@ const SendMessageFromInner = ({ onSendMessageSubmit, isLoading, buttonText }: Se
                 <Input  type="text" {...field} />
               </FormControl>
               <FormDescription />
-              <FormMessage className='text-end transition-all ease-in-out' />
+              <FormMessage className='text-end transition-all ease-in-out border' />
             </FormItem>
           )}
         />

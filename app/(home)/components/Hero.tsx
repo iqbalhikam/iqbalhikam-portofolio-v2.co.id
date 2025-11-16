@@ -7,6 +7,7 @@ import { UseTimeOut } from '@/hooks/useTimeOut';
 import { useShowSection } from '@/hooks/useShowSection';
 import Link from 'next/link';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import SpotifyMusicPlayList from '@/components/spotify/SpotifyMusicPlayList';
 
 const Hero = () => {
   const showApp = UseTimeOut(2000);
@@ -14,15 +15,9 @@ const Hero = () => {
 
   return (
     <section ref={sectionRef} id="hero" className="relative w-full min-h-96 lg:min-h-screen flex items-center justify-center  ">
-      <div className="absolute inset-0 flex  items-center justify-end pt-30 lg:pt-0 p-5 lg:p-10">
+      <div className="absolute inset-0 flex flex-col  items-center justify-end pt-30 lg:pt-0 p-5 lg:p-10">
         {/* profile */}
-        <div className="w-fit flex flex-col items-center gap-10 justify-center   rounded-xl  ">
-        {/* card mobile*/}
-        {/* <div className="flex md:hidden lg:hidden">
-          <div className='w-50 h-50 bg-accent'>
-
-          </div>
-        </div> */}
+        <div className="w-full h-full flex  items-center gap-10 justify-end  ">
           <div className="flex flex-col gap-6 p-5 lg:p-12 text-end items-end ">
             <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: isVisible ? 1 : 0 }} transition={{ repeatDelay: 2, duration: 1 }} className="dark:text-white  text-2xl sm:text-4xl lg:text-6xl font-black tracking">
               M IQBAL FATKHUL HIKAM
@@ -49,9 +44,9 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
         {/* id card */}
         <div className="absolute top-0 left-0 w-full h-full hidden md:flex sm:flex pointer-events-none z-40">{showApp && <App />}</div>
-        {/* typografi */}
       </div>
     </section>
   );

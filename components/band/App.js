@@ -19,14 +19,14 @@ const TEXTURE_PATH = '/assets/logo.png';
 useGLTF.preload(GLTF_PATH);
 useTexture.preload(TEXTURE_PATH);
 export default function App(value) {
-  
+
   return (
-    <div className=" w-full min-h-screen">
+    <div className=" w-full min-[400rem]">
       <div className=" responsive-wrapper  ">
         <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
           <ambientLight intensity={Math.PI} />
           <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-            <Band  />
+            <Band />
           </Physics>
           <Environment >
             {/* <color attach="background" args={['white']} /> */}

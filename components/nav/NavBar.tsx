@@ -6,8 +6,7 @@ import { IoIosContact } from 'react-icons/io';
 import { CgClose } from 'react-icons/cg';
 import { TiThMenu } from 'react-icons/ti';
 import Link from 'next/link';
-import { Button } from '../ui/button';
-import { delay, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const NavBar = () => {
   const { shadow, handleMouseMove, handleMouseLeave } = useShadow();
@@ -52,7 +51,8 @@ const NavBar = () => {
   return (
     <div>
       <header>
-        <div className="relative flex md:hidden lg:hidden">
+        {/* NavBar Mobile */}
+        <div className="relative flex md:flex lg:hidden">
           <nav className=" text-white fixed z-50 left-4 top-6 flex items-center gap-2">
             <button onClick={headleSetShowNav} className="z-50 hover:bg-transparent ">
               <motion.span initial={{ scale: 0 }} animate={{ scale: showNav ? 1 : 0 }}>
@@ -83,7 +83,9 @@ const NavBar = () => {
             </motion.ul>
           </nav>
         </div>
-        <div className="relative hidden md:flex lg:flex mx-auto  h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+
+        {/* NavBar Desktop */}
+        <div className="relative hidden md:hidden lg:flex mx-auto  h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-1 items-center justify-center">
             <nav
               aria-label="Global"
