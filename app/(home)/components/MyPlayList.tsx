@@ -9,7 +9,7 @@ const MyPlayList = () => {
     <div ref={sectionRef} className="flex flex-col items-center justify-center content-center  w-full  ">
       <h1 className="text-2xl lg:text-3xl font-bold pb-10 pt-30">My PlayList</h1>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 z-50 w-full justify-center px-20">
+      <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 z-50 w-full justify-center px-10 lg:px-20">
         <motion.div
           initial={{ scale: 0 }}
           whileHover={{ scale: 1.1, rotate: -2, transition: { delay: 0, duration: 0.3, ease: 'easeInOut' } }}
