@@ -8,7 +8,6 @@ import { useTheme } from 'next-themes';
 const container = {
   width: 60,
   height: 30,
-  borderRadius: 50,
   cursor: 'pointer',
   display: 'flex',
   padding: 10,
@@ -31,12 +30,11 @@ const ThemeToggle = () => {
     setTheme('light');
   }
 
-
   return (
     <div className="relative">
-      <div className="fixed z-50 top-7 right-6 lg:right-25">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} whileTap={{ rotate: isOn ? 20 : -20 }} className="fixed z-50 top-7 right-6 lg:right-25">
         <Button
-          className="toggle-container bg-secondary-foreground/20 hover:bg-secondary-foreground/20 backdrop-blur-sm"
+          className="toggle-container rounded-2xl  bg-secondary-foreground/20 hover:bg-secondary-foreground/20 backdrop-blur-sm"
           style={{
             ...container,
             justifyContent: 'flex-' + (isOn || theme === 'dark' ? 'start' : 'end'),
@@ -53,7 +51,7 @@ const ThemeToggle = () => {
             }}
           />
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 };

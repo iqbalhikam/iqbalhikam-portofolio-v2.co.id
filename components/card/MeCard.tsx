@@ -9,10 +9,12 @@ type CardProjectProps = {
   desc: string;
   slug?: string;
   animateScale?: number;
+  animateDelay?: number;
 };
-const MeCard = ({ imageUrl, title, desc, slug, animateScale }: CardProjectProps) => {
+const MeCard = ({ imageUrl, title, desc, slug, animateScale, animateDelay }: CardProjectProps) => {
   return (
-    <motion.div initial={{ scale: animateScale ? 1 : 0 }} animate={{ scale: animateScale }} exit={{ scale: 0 }} whileHover={{ scale: 1.05 }}>
+    <motion.div initial={{ scale: animateScale ? 1 : 0 }} animate={{ scale: animateScale, transition: { duration: 0.3, delay: animateDelay ? animateDelay : 1, ease: 'easeInOut'
+     }}} exit={{ scale: 0 }} whileHover={{ scale: 1.05 }}>
       <Link href={slug ? slug : `#`}>
         <Card className="border-none group flex h-full flex-col rounded-xl overflow-hidden bg-background-light dark:bg-background-dark shadow-lg dark:shadow-2xl hover:shadow-xl dark:hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1">
           <CardHeader className="relative w-full aspect-video bg-cover bg-center" style={{ backgroundImage: `url("${imageUrl}")` }}>

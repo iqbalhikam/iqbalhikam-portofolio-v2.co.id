@@ -9,7 +9,7 @@ const SpotifyMusicPlayList = ({ playlistLink }: SpotifyProps) => {
       style={{ borderRadius: '12px', width: '100%' }}
       link={playlistLink}
       width={'100%'} // Anda bisa atur lebar
-      height={80}
+      height={'100%'}
       autoPlay={true}
     />
   );

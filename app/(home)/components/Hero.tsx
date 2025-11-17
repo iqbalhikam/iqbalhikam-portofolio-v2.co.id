@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
 
         {/* id card */}
-        <div className="absolute top-0 left-0 w-full h-full hidden md:flex sm:flex pointer-events-none z-40">{showApp && <App />}</div>
+        <div className="absolute top-0 left-0 w-full h-full hidden lg:flex pointer-events-none z-40">{showApp && <App />}</div>
       </div>
     </section>
   );

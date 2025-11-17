@@ -15,7 +15,7 @@ const SendMessageFromInner = ({ onSendMessageSubmit, isLoading, buttonText }: Se
   const form = useFormContext<SendMessageFormSchema>();
   return (
     <form onSubmit={form.handleSubmit(onSendMessageSubmit)} >
-      <div className='flex  w-full gap-5 '>
+      <div className='flex flex-col md:flex-row lg:flex-row w-full md:gap-5 lg:gap-5 '>
         <FormField
           control={form.control}
           name="name"

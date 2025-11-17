@@ -20,7 +20,7 @@ const Projects = ({ id }: AnimatedTextProps) => {
         <h2 className="text-2xl lg:text-3xl font-bold pb-10 pt-30">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] pb-10 px-10 ">
           {projectsData.map((project) => (
-            <MeCard animateScale={1} key={project.id} imageUrl={project.projectImage[0].url} title={project.title} desc={project.description} slug={`/${project.slug}`} />
+            <MeCard animateScale={1} animateDelay={project.id} key={project.id} imageUrl={project.projectImage[0].url} title={project.title} desc={project.description} slug={`/${project.slug}`} />
           ))}
         </div>
       </motion.div>

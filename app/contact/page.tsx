@@ -19,11 +19,11 @@ const PageContact = () => {
   };
   return (
     <PageTransition>
-      <div className=" flex-grow container  mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-secondary-foreground dark:text-white">
-        <div className="flex h-full">
-          <section className=" m-5 p-10 w-full rounded-2xl dark:bg-accent/20">
+      <div className=" flex-grow container min-h-screen mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-secondary-foreground dark:text-white">
+        <div className="flex flex-col lg:flex-row justify-center items-center  lg:items-start h-fit">
+          <section className=" m-5 p-5 lg:p-10 w-full rounded-2xl  ">
             <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out, and I'll get back to you as soon as possible.</p>
+            <p  className="text-sm lg:text-xl text-accent-foreground/50">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out, and I'll get back to you as soon as possible.</p>
             <div>
               <div className="flex items-center content-center gap-2 mt-4 ">
                 <div className="w-8 h-8 rounded-full border border-primary flex justify-center items-center ">
@@ -31,7 +31,7 @@ const PageContact = () => {
                 </div>
                 <div>
                   <h2 className="text-sm font-semibold">Email</h2>
-                  <p className="text-xs text-accent-foreground/50">iqvalHikam@gmail.com</p>
+                  <p className="text-xs text-accent-foreground/50">iqbalHikam@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center content-center gap-2 mt-4 ">
@@ -57,8 +57,8 @@ const PageContact = () => {
               </div>
             </div>
           </section>
-          <section className=" m-5 p-10 w-2/3 rounded-2xl bg-secondary-foreground/10 dark:bg-accent/20 text-secondary-foreground">
-            <div className="">
+          <section className=" m-5 p-5 lg:p-10 w-full h-full rounded-2xl   text-secondary-foreground">
+            <div className="h-full">
               <Form {...form}>
                 <SendMessageFromInner onSendMessageSubmit={heandleSendMessageSubmit} buttonText="Kirim" />
               </Form>
