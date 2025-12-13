@@ -53,9 +53,7 @@ const AboutMe = () => {
           </section>
           <section className="mb-16">
             <p className="text-base md:text-lg text-secondary-foreground  leading-relaxed text-center md:text-left">
-              I'm M Iqbal Fatkhul Hikam, a passionate and creative student. I have a deep interest in programming, which motivates me to continuously learn and develop. I graduated from Bina Insani University. I believe that
-              self-development is the key to achieving goals, and I'm always looking for opportunities to hone my skills and knowledge. I believe that every day is an opportunity to learn something new and create meaningful moments. In my
-              life, I strive to be a diligent person. I hope to contribute positively to the world around me and continue to grow as an individual.
+              I'm M Iqbal Fatkhul Hikam, a passionate and creative student. I have a deep interest in programming, which motivates me to continuously learn and develop. I am currently pursuing my degree at Bina Insani University. I believe that self-development is the key to achieving goals, and I'm always looking for opportunities to hone my skills and knowledge. I believe that every day is an opportunity to learn something new and create meaningful moments. In my life, I strive to be a diligent person. I hope to contribute positively to the world around me and continue to grow as an individual.
             </p>
           </section>
           <section className="mb-16">

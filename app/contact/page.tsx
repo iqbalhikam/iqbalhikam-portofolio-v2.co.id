@@ -8,6 +8,7 @@ import { sendMessageFormSchema, type SendMessageFormSchema } from './form/send-m
 import PageTransition from '@/components/animation/PageTransition';
 import { MdOutlineMail } from 'react-icons/md';
 import { FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 const PageContact = () => {
   const form = useForm<SendMessageFormSchema>({
@@ -23,7 +24,7 @@ const PageContact = () => {
         <div className="flex flex-col lg:flex-row justify-center items-center  lg:items-start h-fit">
           <section className=" m-5 p-5 lg:p-10 w-full rounded-2xl  ">
             <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-            <p  className="text-sm lg:text-xl text-accent-foreground/50">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out, and I'll get back to you as soon as possible.</p>
+            <p className="text-sm lg:text-xl text-accent-foreground/50">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out, and I'll get back to you as soon as possible.</p>
             <div>
               <div className="flex items-center content-center gap-2 mt-4 ">
                 <div className="w-8 h-8 rounded-full border border-primary flex justify-center items-center ">
@@ -46,15 +47,15 @@ const PageContact = () => {
             </div>
             <h2 className="text-md font-bold mb-2 mt-5">Connect with Me</h2>
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
+              <Link href="https://github.com/iqbalhikam" target="_blank" className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
                 <FaGithub />
-              </div>
-              <div className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
+              </Link>
+              <Link target="_blank" href="https://www.linkedin.com/in/iqbalhikam/" className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
                 <FaLinkedin />
-              </div>
-              <div className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
+              </Link>
+              <Link target="_blank" href="https://www.instagram.com/iqbal.hikm" className="w-8 h-8 rounded-full border border-primary bg-primary/10 flex justify-center items-center ">
                 <FaInstagram />
-              </div>
+              </Link>
             </div>
           </section>
           <section className=" m-5 p-5 lg:p-10 w-full h-full rounded-2xl   text-secondary-foreground">

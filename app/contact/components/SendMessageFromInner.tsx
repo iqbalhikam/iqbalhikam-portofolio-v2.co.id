@@ -26,7 +26,7 @@ const SendMessageFromInner = ({ onSendMessageSubmit, isLoading, buttonText }: Se
                 <Input  type="text" {...field} />
               </FormControl>
               <FormDescription />
-              <FormMessage className='text-end transition-all ease-in-out border' />
+              <FormMessage className='text-end transition-all ease-in-out' />
             </FormItem>
           )}
         />
